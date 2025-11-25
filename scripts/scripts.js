@@ -25,10 +25,20 @@ let duration = 0;
 */
 
 // INSERT YOUR CODE HERE
+function recalculate() {
+    const costLabel = document.getElementById("calculated-cost");
 
+    let cost = 0;
 
+    if (modelName === "XYZ") {
+        cost = duration * 100;
+    } else if (modelName === "CPRG") {
+        cost = duration * 213;
+    }
 
-
+    // Format with two decimals
+    costLabel.innerHTML = cost.toFixed(2);
+}
 
 
 /****************** model button logic ******************/
