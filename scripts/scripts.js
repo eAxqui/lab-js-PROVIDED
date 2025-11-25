@@ -85,6 +85,31 @@ modelButton.addEventListener("click", changeModel);
 */
 
 // INSERT YOUR CODE HERE
+const durationButton = document.getElementById("duration-button");
 
+function changeDuration() {
+    const durationText = document.getElementById("duration-text");
 
+    let newDuration = prompt("Enter the number of days to book the robot:");
 
+    // If user clicked cancel
+    if (newDuration === null) return;
+
+    // Convert to number
+    newDuration = Number(newDuration);
+
+    // Reject invalid inputs
+    if (isNaN(newDuration) || newDuration < 0) {
+        alert("Please enter a valid non-negative number.");
+        return;
+    }
+
+    duration = newDuration;
+    durationText.innerHTML = duration;
+
+    recalculate();
+}
+
+durationButton.addEventListener("click", changeDuration);
+
+recalculate();
